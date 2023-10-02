@@ -1,0 +1,16 @@
+.app__header{
+    background-color: #0C0C0C; 
+ }
+ 
+ .app__header-h1{
+     font-family: 'Cormorant Upright', serif;
+     color: #e4a478;
+     letter-spacing: 0.04em;
+     text-transform: uppercase;
+     line-height: 117px;
+     font-size: 90px;
+ }
+ 
+ .app__header-img img{
+     width: 80%;
+ }
