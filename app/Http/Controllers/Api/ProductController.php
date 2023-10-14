@@ -89,13 +89,30 @@ class ProductController extends Controller
     }
 }
 
-    
-
-    
     public function destroy($id)
     {
         $product=Product::destroy($id);
         return $product;
+    }
+
+    public function discountCalculator(){
+        $products=Product::join('subcategories','subcategories.id','=', 'products.subcategory_id')
+        ->get(['products.id', 'products.name','products.price','products.stock','products.description',
+        'products.photo','products.status', 
+        'subcategories.nameSub as Subcategory']);
+
+        $discountedProducts = collect(); // Crear una nueva colección para almacenar los productos con descuento
+        if (!empty($products)) {
+            foreach ($products as $clave => $product) {
+                if ($product->stock >= 100) {
+                    $product->price -= $product->price * 0.5;
+                    $product->save();
+                    $discountedProducts->push($product); // Agregar el producto modificado a la colección
+                }
+            }
+        }
+        
+        return $discountedProducts; // Devolver la colección de productos con descuento
     }
 
 }

@@ -55,4 +55,25 @@ class Sale_DetailsController extends Controller
         $sale_d=Sales_details::destroy($id);
         return $sale_d;
     }
+
+    function afterSale($productoId)
+{
+    // Encuentra el producto en la base de datos
+    $producto = Product::find($productoId);
+  
+    // Verifica si el producto existe
+    if (!$producto) {
+        return false;
+        // Opcionalmente, lanzar una excepción o manejar el error de otra manera
+    }
+  
+    // Reducir la cantidad disponible en 1
+    $producto->stock -= 1;
+  
+    // Guardar los cambios en la base de datos
+    $producto->save();
+  
+    return true;
+}
+
 }

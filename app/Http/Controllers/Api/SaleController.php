@@ -20,7 +20,6 @@ class SaleController extends Controller
         return $sales;
     }
 
-
     public function store(Request $request)
     {
         $request->validate([
@@ -54,10 +53,6 @@ class SaleController extends Controller
     }
 }
 
-
-    
-
-    
     public function show($id)
     {
         $sale= Sales::find($id);
@@ -87,10 +82,7 @@ class SaleController extends Controller
                 'message'=>'Something goes wrong while updating a Sale!'
             ], 500);
         }
-    
-
     }
-
     
     public function destroy($id)
     {
@@ -98,4 +90,20 @@ class SaleController extends Controller
         return $sale;
         
     }
+
+    function discount($totalVenta)
+{
+    if ($totalVenta >= 500) {
+        $descuento = $totalVenta * 0.5;
+    } elseif ($totalVenta >= 200) {
+        $descuento = $totalVenta * 0.2;
+    } elseif ($totalVenta >= 100) {
+        $descuento = $totalVenta * 0.1;
+    } else {
+        // Si el total de la venta no supera ninguna de las condiciones, no se aplica descuento
+        $descuento = 0;
+    }
+    return $descuento;
+}
+
 }
