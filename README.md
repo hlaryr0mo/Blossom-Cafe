@@ -1,4 +1,4 @@
-<img width="199" alt="blossom_white" src="https://github.com/hlaryr0mo/Blossom-Cafe/assets/78989864/262149e9-be75-4353-95ea-065430166835">
+<img width="199" alt="blossom_white" src="https://github.com/hlaryr0mo/Blossom-Cafe/assets/78989864/262149e9-be75-4353-95ea-065430166835" style="display: block; margin: 0 auto;">
 
 ## Brewing Blooms: A Cafe Develop Project
 
